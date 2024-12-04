@@ -1,0 +1,153 @@
+/* Importing Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --outer-gradient-dark: linear-gradient(135deg, #ff7eb3, #8a2be2, #1e90ff, #ff4500);
+  --inner-bg-dark: #1f1f1f;
+  --button-bg-dark: #444;
+  --button-hover-dark: #666;
+  --button-active-dark: #888;
+  --text-color-dark: #eaeaea;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212;
+  color: var(--text-color-dark);
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  padding: 30px;
+  border: 5px solid #000; /* Changed to black border */
+  border-radius: 10px; /* Optional: To add rounded corners to the square */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  background-color: var(--inner-bg-dark);
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.container:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9); /* Darker shadow on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.watch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.outer-circle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: var(--outer-gradient-dark);
+  background-size: 400%;
+  animation: gradient-rotation 6s infinite linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  margin-bottom: 30px; /* To add spacing between the circle and buttons */
+  transition: box-shadow 0.3s ease; /* Smooth shadow effect on hover */
+}
+
+.outer-circle:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9); /* Darker shadow on hover */
+}
+
+@keyframes gradient-rotation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.inner-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-color: var(--inner-bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-color-dark);
+}
+
+.controls {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+button {
+  margin: 10px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-color-dark);
+  background-color: var(--button-bg-dark);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Added transition */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+button:hover {
+  background-color: var(--button-hover-dark);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* More intense shadow on hover */
+}
+
+button:active {
+  background-color: var(--button-active-dark);
+  transform: translateY(0px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Slight shadow when active */
+}
+
+button:disabled {
+  background-color: #333;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#timer-display {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+/* Section visibility control */
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
